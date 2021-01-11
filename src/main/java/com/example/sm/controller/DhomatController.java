@@ -62,6 +62,7 @@ public class DhomatController {
         mav.addObject("dhoma", dhoma);
 
         return mav;
+
     }
 
     @RequestMapping("/delete/{id}")
