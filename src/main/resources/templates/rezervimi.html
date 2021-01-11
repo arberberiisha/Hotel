@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>SM</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <h1>Sign Up</h1>
+    </div>
+    <form th:action="@{/rezervimi_hotelit}" th:object="${rezervimi}"
+          method="post" style="max-width: 600px; margin: 0 auto;">
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-form-label col-4">Nga Data:</label>
+                <div class="col-8">
+                    <input type="text" placeholder="YYYY,MM,DD" th:field="*{ngaData}" required/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-4">Deri Me Daten:</label>
+                <div class="col-8">
+                    <input type="text" placeholder="YYYY,MM,DD" th:field="*{deriMeDaten}" required/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-4">Dhoma Id:</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" th:field="*{dhomaID}" required/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-4">Client Id:</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" th:field="*{userID}" required/>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</div>
+</body>
+</html>

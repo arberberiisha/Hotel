@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>SM</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <h1>Dhomat!!!</h1>
+    </div>
+
+
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Cmimi</th>
+                <th>Emertimi</th>
+                <th>Kati</th>
+                <th>NumriShtreterve</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="dhoma: ${dhomaList}">
+                <td th:text="${dhoma.id}">Cmimi</td>
+                <td th:text="${dhoma.cmimi}">Cmimi</td>
+                <td th:text="${dhoma.emertimi}">Emertimi</td>
+                <td th:text="${dhoma.kati}">Kati</td>
+                <td th:text="${dhoma.nrShtreterve}">NrShtreterve</td>
+<!--                <td th:text="${}" >-->
+<!--                </td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+</body>
+</html>
