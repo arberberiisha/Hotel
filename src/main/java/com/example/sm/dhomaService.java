@@ -13,10 +13,23 @@ public class dhomaService {
     @Autowired
     public DhomaRepository dRepo;
 
+
     public List<dhoma> listAll(String fjalKyqe){
         if(fjalKyqe != null){
-            dRepo.listAll(fjalKyqe);
+            return dRepo.listAll(fjalKyqe);
         }
-        return dRepo.findAll();
+            return dRepo.findAll();
+    }
+
+    public void save(dhoma dhoma) {
+        dRepo.save(dhoma);
+    }
+
+    public dhoma get(Long id) {
+        return dRepo.findById(id).get();
+    }
+
+    public void delete(Long id) {
+        dRepo.deleteById(id);
     }
 }

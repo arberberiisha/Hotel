@@ -34,12 +34,12 @@ public class rezervimi {
 
 
     @Column(nullable=true)
-    @DateTimeFormat(pattern = "yy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate ngaData;
 
 
     @Column(nullable=true)
-    @DateTimeFormat(pattern = "yy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate deriMeDaten;
 
     @ManyToOne()

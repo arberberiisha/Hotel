@@ -11,6 +11,9 @@ public class dhoma {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable=false,length=25)
+    private double cmimi;
+
     @Column(nullable=false, unique=true)
     private String emertimi;
 
@@ -20,8 +23,7 @@ public class dhoma {
     @Column(nullable=false,length=3)
     private int kati;
 
-    @Column(nullable=false,length=25)
-    private double cmimi;
+
 
 
 

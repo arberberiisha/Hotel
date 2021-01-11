@@ -37,9 +37,6 @@ public class UserController {
     }
 
 
-
-
-
     @PostMapping("/process_register")
     public String processRegistration(user user){
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();

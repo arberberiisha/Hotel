@@ -5,8 +5,7 @@ import com.example.sm.model.rezervimi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,13 +22,11 @@ public class RezervoController {
 
         return "rezervimi";
     }
-
-    @PostMapping("/procesi_rezervimit")
+    @RequestMapping(value = "/procesi_rezervimit", method = RequestMethod.POST)
     public String processRegistration(rezervimi rezervimi){
         rRepo.save(rezervimi);
 
         return "index";
-
     }
 
     @GetMapping("/lista_rezervimeve")
