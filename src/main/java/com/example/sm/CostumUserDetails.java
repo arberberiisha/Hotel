@@ -8,7 +8,7 @@ import java.util.Collection;
 
 public class CostumUserDetails implements UserDetails{
 
-    private com.example.sm.model.user user;
+    private user user;
 
 
     public CostumUserDetails(user user) {
@@ -52,5 +52,8 @@ public class CostumUserDetails implements UserDetails{
         return true;
     }
 
+    public String fullName(){
+        return user.getFirstName()+" "+user.getLastName();
+    }
 
 }

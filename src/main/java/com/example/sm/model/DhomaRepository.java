@@ -14,14 +14,8 @@ public interface DhomaRepository extends JpaRepository<dhoma, Long> {
           "LIKE %?1%")
      List<dhoma> listAll(String fjalKyqe);
 
-    @Query("select d from dhoma d")
-    List<dhoma> exist(dhoma dhoma);
-
-
-
-
     @Query("SELECT u FROM dhoma u WHERE u.emertimi = ?1")
-    dhoma findByEmertimi(String emertimi);
+        dhoma findByEmertimi(String emertimi);
 
 
 

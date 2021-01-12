@@ -39,7 +39,7 @@ public class DhomatController {
             return "redirect:/lista_dhomave";
         }
         model.addAttribute("dhoma", dhoma);
-        model.addAttribute("error", "dhoma me kete emer egziston!!!");
+        model.addAttribute("error", "Dhoma me kete emer egziston!!!");
 
         return "shto_dhoma";
 

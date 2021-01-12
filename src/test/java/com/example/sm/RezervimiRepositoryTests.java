@@ -44,6 +44,7 @@ public class RezervimiRepositoryTests {
         rezervimi.setDeriMeDaten(LocalDate.of(2021,2,3));
         rezervimi.setDhomaID(dhomaRepository.getOne(5L));
         rezervimi.setUserID(userRepository.getOne(1L));
+        rezervimi.setDataRezervimi(LocalDate.of(2021,1,12));
 
 
         rezervimi saved = repo.save(rezervimi);

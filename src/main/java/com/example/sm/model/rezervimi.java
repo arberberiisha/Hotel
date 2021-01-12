@@ -15,11 +15,14 @@ public class rezervimi {
 
     public rezervimi(){}
 
-    public rezervimi(LocalDate ngaData, LocalDate deriMeDaten, dhoma dhomaID, user userID) {
+    public rezervimi(LocalDate ngaData, LocalDate deriMeDaten, dhoma dhomaID, user userID, user dataRezervimit) {
         this.ngaData = ngaData;
         this.deriMeDaten = deriMeDaten;
+        this.dataRezervimi = dataRezervimi;
         this.dhomaID = dhomaID;
         this.userID = userID;
+
+
     }
 
 //    public void UpdateFields(LocalDate nga, LocalDate deri, dhoma dhoma){
@@ -41,6 +44,12 @@ public class rezervimi {
     @Column(nullable=true)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate deriMeDaten;
+
+
+
+    @Column(nullable=true)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dataRezervimi;
 
     @ManyToOne()
     @JoinColumn(name="dhomaId")
@@ -88,5 +97,13 @@ public class rezervimi {
 
     public void setUserID(user userID) {
         this.userID = userID;
+    }
+
+    public LocalDate getDataRezervimi() {
+        return dataRezervimi;
+    }
+
+    public void setDataRezervimi(LocalDate dataRezervimi) {
+        this.dataRezervimi = dataRezervimi;
     }
 }

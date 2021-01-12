@@ -8,11 +8,20 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
+import org.springframework.stereotype.Component;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import java.io.IOException;
 import java.util.Date;
 
 
@@ -47,17 +56,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     auth.authenticationProvider(authenticationProvider());
     }
 
+    @Autowired
+    private AuthFailureHandler authFailureHandler;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/list_users").authenticated()
+                .antMatchers("/list_users/**","/lista_dhomave/**","/lista_rezervimeve/**").authenticated()
                 .anyRequest().permitAll()
                 .and()
-                .formLogin()
-                .usernameParameter("email")
-                .defaultSuccessUrl("/list_users")
-                .permitAll()
-                .and()
-                .logout().logoutSuccessUrl("/").permitAll();//qitu duhet me ja bo qe pa u logu smun me hi aty me shtu dhom tani besoj mun me marr edhe userin, psh provoe me qit qaty ku o lista e userave
+                .formLogin( )
+                    .loginPage("/login")
+                    .failureHandler(authFailureHandler)
+                    .permitAll()
+                     .and()
+                .logout().logoutSuccessUrl("/index").permitAll();
     }
+
+
 }

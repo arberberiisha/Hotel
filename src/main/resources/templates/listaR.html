@@ -11,22 +11,51 @@
         <h1>Te Gjitha Rezervimet!!!</h1>
     </div>
 
+
+    <h3><a th:href="@{/rezervon}">Rezervo</a></h3>
+
+    <h3>User: [[${#request.userPrincipal.principal.fullName}]]</h3>
+
+    <div>
+        &nbsp;
+    </div>
+
+    <div class="m-3">
+        <form th:action="@{/lista_rezervimeve}">
+            Kerko Rezervimin:
+            <input type="text" name="fjalKyqe" th:value="${fjalKyqe}" required/>
+            &nbsp;
+            <input type="submit" value="search"/>
+            &nbsp;
+            <input type="button" value="clear" onclick="clearFilter()"/>
+        </form>
+    </div>
+
+
     <div>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
             <tr>
+                <th>ID</th>
                 <th>ngaData</th>
                 <th>DeriMeDaten</th>
                 <th>Dhoma</th>
-                <th>Klienti</th>
+                <th>Kati</th>
+                <th>Emri</th>
+                <th>Mbiemri</th>
+                <th>Email</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="rezervimi: ${listaRezervimeve}">
+                <td th:text="${rezervimi.id}">ID</td>
                 <td th:text="${rezervimi.ngaData}">ngaData</td>
                 <td th:text="${rezervimi.deriMeDaten}">DeriMeDaten</td>
                 <td th:text="${rezervimi.dhomaID.getEmertimi()}">Dhoma</td>
-                <td th:text="${rezervimi.userID.getFirstName()}">Klienti</td>
+                <td th:text="${rezervimi.dhomaID.getKati()}">Kati</td>
+                <td th:text="${rezervimi.userID.getFirstName()}">Emri</td>
+                <td th:text="${rezervimi.userID.getLastName()}">Mbiemri</td>
+                <td th:text="${rezervimi.userID.getEmail()}">Email</td>
             </tr>
             </tbody>
         </table>
@@ -34,5 +63,10 @@
 
 </div>
 
+<script type="text/javascript">
+    function clearFilter(){
+        window.location = "/lista_rezervimeve";
+    }
+    </script>
 </body>
 </html>
