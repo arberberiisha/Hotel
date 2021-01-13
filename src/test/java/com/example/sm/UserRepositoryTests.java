@@ -3,6 +3,7 @@ package com.example.sm;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.example.sm.model.UserRepository;
+import com.example.sm.model.dhoma;
 import com.example.sm.model.user;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +53,8 @@ public class UserRepositoryTests {
 
        assertThat(user).isNotNull();
 
-
+    System.out.println(user);
     }
+
 
 }

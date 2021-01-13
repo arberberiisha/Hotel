@@ -27,6 +27,7 @@ public class RezervimiRepositoryTests {
 
     @Autowired
     private RezervimiRepository repo;
+
     @Autowired
     private DhomaRepository dhomaRepository;
 

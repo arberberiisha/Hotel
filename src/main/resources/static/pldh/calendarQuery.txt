@@ -1,0 +1,8 @@
+Calendari per te mar dhomen qe seshte rezervuar ne kete date!!
+
+select * from dhomat 
+where id not in 
+( select dhoma_id from rezervimi
+where (nga_data between '2020-01-01' and '2022-01-01')
+or (deri_me_daten between '2021-01-01' and  '2021-01-11')
+);

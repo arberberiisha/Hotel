@@ -8,10 +8,29 @@
 <body>
 <div class="container text-center">
     <div>
-    <h1>All Users!!!</h1>
+        <h1>Userat!!!</h1>
     </div>
 
     <strong> Username: <span sec:authentication="name"></span> </strong>
+
+    <h3><a th:href="@{/shto}">Shto User</a></h3>
+
+
+    <div>
+        &nbsp;
+    </div>
+
+
+    <div class="m-3">
+        <form th:action="@{/lista_clienteve}">
+            Kerko Userin Permes E-Mailit:
+            <input type="text" name="fjalKyqe" th:value="${fjalKyqe}" required/>
+            &nbsp;
+            <input type="submit" value="search"/>
+            &nbsp;
+            <input type="button" value="clear" onclick="clearFilter()"/>
+        </form>
+    </div>
 
     <div>
         <table class="table table-striped table-bordered">
@@ -21,20 +40,35 @@
                 <th>E-Mail</th>
                 <th>FirstName</th>
                 <th>LastName</th>
+                <th>Roli</th>
+                <th>Opsionet</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="user: ${listUsers}">
+            <tr th:each="user: ${userList}">
                 <td th:text="${user.id}">User ID</td>
                 <td th:text="${user.email}">User Email</td>
                 <td th:text="${user.firstName}">User Name</td>
                 <td th:text="${user.lastName}">User LastName</td>
+                <td th:text="${user.roli}">User Role</td>
+                <td>
+                    <a th:href="@{'/editUser/' + ${user.id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deleteUser/' + ${user.id}}">Delete</a>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
 
+
 </div>
+
+<script type="text/javascript">
+    function clearFilter(){
+        window.location = "/lista_clienteve";
+    }
+</script>
 
 </body>
 </html>

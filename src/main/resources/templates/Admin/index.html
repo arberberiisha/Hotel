@@ -10,12 +10,19 @@
 </head>
 <body>
 <div class="container text-center">
+
+    <nav class="nav nav-pills flex-sm-row">
+        <img src="images/icone.png" alt="user" class="icone">
+        <a class=" nav-link active" aria-current="page" href="#">Home</a>
+        <a class=" nav-link btn-success" onclick="document.getElementById('id01').style.display='block'" href="#">LogIn</a>
+    </nav>
     <div>
     <h1>Mire se Vinii.</h1>
     </div>
     <div>
-        <h3><a th:href="@{/list_users}">ListAllUsers</a></h3>
+        <h3><a th:href="@{/lista_clienteve}">ListAllUsers</a></h3>
         <h3><a th:href="@{/register}">Register</a></h3>
+        <h3><a th:href="@{/shto}">Shto User</a></h3>
         <h3><a th:href="@{/login}">Login</a></h3>
         <h3><a th:href="@{/lista_rezervimeve}">Lista e Rezervimeve</a></h3>
         <h3><a th:href="@{/lista_dhomave}">Dhomat</a></h3>

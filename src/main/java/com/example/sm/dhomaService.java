@@ -5,6 +5,7 @@ import com.example.sm.model.dhoma;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -31,5 +32,11 @@ public class dhomaService {
 
     public void delete(Long id) {
         dRepo.deleteById(id);
+    }
+
+    public List<dhoma> dhomateLira(LocalDate nga,LocalDate deri){
+
+        return dRepo.dhomatTeLira(nga,deri);
+
     }
 }

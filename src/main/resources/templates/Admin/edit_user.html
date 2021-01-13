@@ -12,7 +12,7 @@
     <div>
         <h1>Shto Dhoma!</h1>
     </div>
-    <form action="#" th:action="@{/shtohetDhoma}" th:object="${dhoma}"
+    <form action="#" th:action="@{/updateUser}" th:object="${user}"
           method="post" style="max-width: 600px; margin: 0 auto;">
         <div class="m-3">
             <div class="form-group row">
@@ -22,27 +22,33 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-form-label col-4">Cmimi:</label>
+                <label class="col-form-label col-4">Emri:</label>
                 <div class="col-8">
-                    <input type="text" class="form-control" th:field="*{cmimi}" required/>
+                    <input type="text" class="form-control" th:field="*{firstName}" required/>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-form-label col-4">Emri i Dhomes:</label>
+                <label class="col-form-label col-4">Mbiemri:</label>
                 <div class="col-8">
-                    <input type="text" class="form-control" th:field="*{emertimi}" required/>
+                    <input type="text" class="form-control" th:field="*{lastName}" required/>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-form-label col-4">Kati:</label>
+                <label class="col-form-label col-4">Email:</label>
                 <div class="col-8">
-                    <input type="text" class="form-control" th:field="*{kati}" required/>
+                    <input type="text" class="form-control" th:field="*{email}" required/>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-form-label col-4">Numri i shtreterve:</label>
+                <label class="col-form-label col-4">Roli:</label>
                 <div class="col-8">
-                    <input type="text" class="form-control" th:field="*{nrShtreterve}" required/>
+                    <input type="text" class="form-control" th:field="*{roli}" required/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-4">Pasword:</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" th:field="*{password}" required/>
                 </div>
             </div>
 

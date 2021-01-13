@@ -1,12 +1,8 @@
 package com.example.sm.controller;
 
-import com.example.sm.exception.ResourceNotFoundException;
-import com.example.sm.model.RezervimiRepository;
 import com.example.sm.model.UserRepository;
-import com.example.sm.model.rezervimi;
 import com.example.sm.model.user;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,16 +20,16 @@ public class UserController {
 //    private RezervimiRepository rRepo;
 
 
-    @GetMapping("")
+    @GetMapping("/")
     public String viewHomePage(){
-        return "index";
+        return "/Admin/index.html";
     }
 
     @GetMapping("/register")
     public String showSignUpForm(Model model){
         model.addAttribute("user",new user());
 
-                return "singup_form";
+                return "/Client/singup_form.html";
     }
 
 
@@ -44,7 +40,7 @@ public class UserController {
         user.setPassword(encodedPassword);
         uRepo.save(user);
 
-        return "register_succes";
+        return "/Admin/index.html";
 
     }
 
@@ -57,7 +53,9 @@ public class UserController {
 
         List<user> listUsers = uRepo.findAll();
         model.addAttribute("listUsers", listUsers);
-        return "users";
+        return "/Admin/users.html";
     }
+
+
 
 }

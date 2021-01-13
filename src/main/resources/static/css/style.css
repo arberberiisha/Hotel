@@ -5,12 +5,15 @@
 
 
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+label{
+    display: block;
 }
 
 button {
@@ -48,10 +51,16 @@ img.avatar {
     margin-right: auto;
 
 }
+.icone {
+    width: 50px;
+    border-radius: 50px;
+
+}
 
 .container {
     padding: 16px;
 }
+
 
 span.psw {
     float: right;
@@ -70,7 +79,7 @@ span.psw {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
+    padding-top: 10px;
 }
 
 /* Modal Content/Box */

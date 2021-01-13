@@ -31,6 +31,11 @@ public class CostumUserDetails implements UserDetails{
         return user.getEmail();
     }
 
+    public user getUser() {
+        return user;
+    }
+
+
 
     @Override
     public boolean isAccountNonExpired(){

@@ -12,7 +12,6 @@ public interface RezervimiRepository extends JpaRepository<rezervimi, Long> {
     List<rezervimi> listAll(String fjalKyqe);
 
 
-
     @Query("SELECT u FROM rezervimi u WHERE u.id = ?1")
     rezervimi findById(int id);
 

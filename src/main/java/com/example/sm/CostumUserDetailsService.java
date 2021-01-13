@@ -12,6 +12,8 @@ public class CostumUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository repo;
 
+
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         user user = repo.findByEmail(email);
