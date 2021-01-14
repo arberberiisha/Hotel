@@ -1,8 +1,10 @@
 package com.example.sm.controller;
 
+import com.example.sm.CostumUserDetails;
 import com.example.sm.model.UserRepository;
 import com.example.sm.model.user;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,30 +22,31 @@ public class UserController {
 //    private RezervimiRepository rRepo;
 
 
-    @GetMapping("/")
+    @RequestMapping("")
     public String viewHomePage(){
-        return "/Admin/index.html";
+
+        //e perfunduar
+        return "indexUser";
     }
 
-    @GetMapping("/register")
+    @RequestMapping("/register")
     public String showSignUpForm(Model model){
         model.addAttribute("user",new user());
 
-                return "/Client/singup_form.html";
+                return "singup_form";
     }
 
 
-    @PostMapping("/process_register")
+    @RequestMapping("/process_register")
     public String processRegistration(user user){
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         uRepo.save(user);
 
-        return "/Admin/index.html";
+        return "register_succes.html";
 
     }
-
 
 
 
@@ -53,7 +56,7 @@ public class UserController {
 
         List<user> listUsers = uRepo.findAll();
         model.addAttribute("listUsers", listUsers);
-        return "/Admin/users.html";
+        return "users";
     }
 
 

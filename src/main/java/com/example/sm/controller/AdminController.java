@@ -25,7 +25,7 @@ public class AdminController {
     public String formaShtimiTeUserit(Model model){
         model.addAttribute("user",new user());
 
-        return "shtoUser";
+        return "/Admin/shtoUser.html";
     }
 
     @PostMapping("/procesi_shtimi")
@@ -45,34 +45,31 @@ public class AdminController {
             user.setPassword(encodedPassword);
             uRepo.save(user);
 
-            return "index";
+            return "/Admin/index.html";
         }
 
         model.addAttribute("user", user);
         model.addAttribute("error", "Useri me kete Email egziston, ju lutem provoni nje Email tjeter.");
 
-        return "shtoUser";
+        return "/Admin/shtoUser.html";
 
     }
 
-    @GetMapping("/lista_clienteve")
+    @RequestMapping("/lista_clienteve")
     public  String  viewUserList(Model model,@Param("fjalKyqe") String fjalKyqe){
 
         List<user> userList = service.listAll(fjalKyqe);
         model.addAttribute("userList", userList);
         model.addAttribute("fjalKyqe",fjalKyqe);
 
-        return "/Admin/users.html";
+        return "users.html";
 
     }
 
-    @PostMapping("/updateUser")
+    @RequestMapping("/updateUser")
     public String updateUser(user user){
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String encodedPassword = encoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
             uRepo.save(user);
-            return "/Admin/index.html";
+            return "redirect:/lista_clienteve";
     }
 
     @RequestMapping("/editUser/{id}")

@@ -31,6 +31,10 @@ public class CostumUserDetails implements UserDetails{
         return user.getEmail();
     }
 
+    public String getRoli() {
+        return user.getRoli();
+    }
+
     public user getUser() {
         return user;
     }

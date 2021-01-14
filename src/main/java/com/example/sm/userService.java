@@ -38,6 +38,9 @@ public class userService {
     }
 
 
+    public void roli(String role){
+            uRepo.findByRole(role);
+    }
 
 
 

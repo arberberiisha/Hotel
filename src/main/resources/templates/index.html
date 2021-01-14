@@ -7,14 +7,16 @@
     <link href="jquery.datetimepicker.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+
+
 </head>
 <body>
 <div class="container text-center">
 
-    <nav class="nav nav-pills flex-sm-row">
+    <nav class="nav nav-pills flex-column flex-sm-row">
         <img src="images/icone.png" alt="user" class="icone">
-        <a class=" nav-link active" aria-current="page" href="#">Home</a>
-        <a class=" nav-link btn-success" onclick="document.getElementById('id01').style.display='block'" href="#">LogIn</a>
+        <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Home</a>
+        <a class="flex-sm-fill text-sm-center nav-link" onclick="document.getElementById('id01').style.display='block'" href="#">LogIn</a>
     </nav>
     <div>
     <h1>Mire se Vinii.</h1>
@@ -29,6 +31,7 @@
         <h3><a th:href="@{/shtodhomeForm}">ShtoDhome</a></h3>
         <h3><a th:href="@{/rezervon}">Rezervo Hotel</a></h3>
         <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
 
         <div id="id01" class="modal">
 
@@ -50,36 +53,59 @@
                         <label for="password"><b>Password</b></label>
                         <input type="password" placeholder="Enter Password" id="username" name="password" required>
 
-                        <button type="submit">Login</button>
+                        <button type="submit"  data-toggle="modal" href="#myModal" onclick="loginAjax()">Login</button>
                         <label>
                             <input type="checkbox" checked="checked" id="password" name="remember"> Remember me
                         </label>
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                     </div>
 
                     <div class="container" style="background-color:#f1f1f1">
-                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                        <span class="psw">Forgot <a href="#">password?</a></span>
                     </div>
                 </fieldset>
             </form>
         </div>
 
-        <script>
-            // Get the modal
-            var modal = document.getElementById('id01');
-
-            //nese klikojm jasht formes modale ajo mbyllet
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
-
-
     </div>
 </div>
 </div>
+
+<script src=""  th:src="@{js/scripts.js}" ></script>
+
+<script>
+    var modal = document.getElementById('id01');
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+
+    function loginAjax(){
+
+        $.post( "/login", function( data ) {
+            if(data == 1){
+                window.location.replace("/");
+            } else {
+                shakeModal();
+            }
+        });
+
+
+        /*   Simulate error message from the server   */
+        shakeModal();
+    }
+
+    function shakeModal(){
+        $('#loginModal .modal-dialog').addClass('shake');
+        $('.error').addClass('alert alert-danger').html("Invalid email/password combination");
+        $('input[type="password"]').val('');
+        setTimeout( function(){
+            $('#loginModal .modal-dialog').removeClass('shake');
+        }, 1000 );
+    }
+</script>
 
 
 </body>
