@@ -89,6 +89,21 @@ span.psw {
     height: 80%;
 }
 
+.backImage{
+    background-image:url("../images/photo-1495073613335-7af8e711f273.jpg");
+    background-size: 100% 100%;
+
+}
+
+.header{
+    background-image:url("../images/245023611.jpg");
+    background-size: 100% 100%;
+}
+
+.test{
+    font-family: "Times New Roman", Times, serif;
+}
+
 /* The Close Button (x) */
 .close {
     position: absolute;

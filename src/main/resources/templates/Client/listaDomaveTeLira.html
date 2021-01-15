@@ -12,8 +12,6 @@
     </div>
 
 
-
-
     <div>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
@@ -36,9 +34,9 @@
 
                 <td>
                     <form method="post" th:action="@{/procesi_rezervimit}">
-                        <input type="hidden" name="ngaData" th:value="${param.nga}" />
-                        <input type="hidden" name="deriMeDaten" th:value="${param.deri}" />
-                        <input type="hidden" name="dhomaID" th:value="${dhoma.id}" />
+                        <input type="hidden" name="ngaData" th:value="${param.nga}"/>
+                        <input type="hidden" name="deriMeDaten" th:value="${param.deri}"/>
+                        <input type="hidden" name="dhomaID" th:value="${dhoma.id}"/>
                         <button type="submit" class="btn btn-primary">Rezervo</button>
                     </form>
                 </td>
@@ -47,11 +45,38 @@
         </table>
     </div>
 
+    <div class="card-deck">
+        <div class="container">
 
+            <div class="row">
+                <div class="col-md-4" th:each="dhoma: ${teLira}">
+                    <div class="card my-3">
+                        <!-- set a width on the image otherwise it will expand to full width       -->
+                        <img class="card-img-top"
+                             src="https://dummyimage.com/400x200/563d7c/ffffff&text=.card-img-topfff&text=.card-img-top"
+                             alt="Card image cap" width="400">
+                        <div class="card-body">
+                            <h4 class="card-title">.card-title</h4>
+                            <p class="card-text" th:text="${dhoma.emertimi}">.card-text</p>
+                        </div>
+                        <div class="card-footer">
+                            <form method="post" th:action="@{/procesi_rezervimit}">
+                                <input type="hidden" name="ngaData" th:value="${param.nga}"/>
+                                <input type="hidden" name="deriMeDaten" th:value="${param.deri}"/>
+                                <input type="hidden" name="dhomaID" th:value="${dhoma.id}"/>
+                                <button type="submit" class="btn btn-primary">Rezervo</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <script type="text/javascript">
-    function clearFilter(){
+    function clearFilter() {
         window.location = "/lista_dhomave";
     }
 </script>

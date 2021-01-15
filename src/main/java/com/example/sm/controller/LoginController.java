@@ -22,9 +22,9 @@ public class LoginController {
         String roli = myUserDetails.getUserRole();
 
         if(roli.equals("ADMIN")){
-            return "indexUser";
+            return "/Admin/indexAdmin.html";
         }else {
-            return "index";
+            return "/Client/indexClient.html";
         }
     }
 

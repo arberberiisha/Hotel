@@ -38,7 +38,7 @@ public class RezervoController {
         rezervimi.setUserID(user);
         rRepo.save(rezervimi);
 
-        return "/Admin/index.html";
+        return "redirect:/login";
     }
 
     @GetMapping("/lista_rezervimeve")
