@@ -1,5 +1,6 @@
 package com.example.sm;
 
+import com.example.sm.model.UserRepository;
 import com.example.sm.model.user;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,6 +10,8 @@ import java.util.Collection;
 public class CostumUserDetails implements UserDetails{
 
     private user user;
+
+    UserRepository userRepository;
 
 
     public CostumUserDetails(user user) {
@@ -31,14 +34,14 @@ public class CostumUserDetails implements UserDetails{
         return user.getEmail();
     }
 
-    public String getRoli() {
-        return user.getRoli();
-    }
 
     public user getUser() {
         return user;
     }
 
+  public String getUserRole(){
+        return user.getRoli();
+  }
 
 
     @Override

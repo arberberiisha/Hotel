@@ -2,6 +2,7 @@ package com.example.sm.controller;
 
 import com.example.sm.CostumUserDetails;
 import com.example.sm.model.dhoma;
+import com.example.sm.model.user;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +16,16 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginController {
 
     @RequestMapping("/login")
-    public String login(){
+    public String login(user user){
 
-        return "index";
+        CostumUserDetails myUserDetails = (CostumUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String roli = myUserDetails.getUserRole();
+
+        if(roli.equals("ADMIN")){
+            return "indexUser";
+        }else {
+            return "index";
+        }
     }
 
 
