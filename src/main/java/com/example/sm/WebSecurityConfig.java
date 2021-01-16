@@ -68,10 +68,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin( )
                     .loginPage("/login")
                     .failureHandler(authFailureHandler)
-                    .defaultSuccessUrl("/login")
+                    .defaultSuccessUrl("/login  ")
                     .permitAll()
                      .and()
-                .logout().logoutSuccessUrl("/Admin/index.html").permitAll();
+                .logout(logout->logout.deleteCookies("coocies")
+                );
     }
 
 

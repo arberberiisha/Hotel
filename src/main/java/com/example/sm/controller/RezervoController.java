@@ -27,7 +27,7 @@ public class RezervoController {
     @GetMapping("/rezervon")
     public String formaRezervimit(Model model){
         model.addAttribute("rezervimi",new rezervimi());
-        return "/Client/rezervimi.html";
+        return "/Client/indexClient.html";
     }
 
     @RequestMapping(value = "/procesi_rezervimit", method = RequestMethod.POST)
