@@ -28,7 +28,7 @@ public class DhomatController {
     @GetMapping("/shtodhomeForm")
     public String shtoDhomeForm(Model model){
         model.addAttribute("dhoma", new dhoma());
-        return "/Admin/shto_dhoma.html";
+        return "/Admin/adminShtoDhome.html";
     }
 
 
@@ -39,7 +39,7 @@ public class DhomatController {
         model.addAttribute("dhomaList", dhomaList);
         model.addAttribute("fjalKyqe",fjalKyqe);
 
-            return "/Admin/listaDhomave.html";
+            return "/Admin/adminListaDhomave.html";
 
     }
 

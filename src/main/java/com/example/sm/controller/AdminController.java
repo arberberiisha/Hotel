@@ -25,7 +25,7 @@ public class AdminController {
     public String formaShtimiTeUserit(Model model){
         model.addAttribute("user",new user());
 
-        return "/Admin/shtoUser.html";
+        return "/Admin/adminShtoUser.html";
     }
 
     @PostMapping("/procesi_shtimi")
@@ -62,7 +62,7 @@ public class AdminController {
         model.addAttribute("userList", userList);
         model.addAttribute("fjalKyqe",fjalKyqe);
 
-        return "users.html";
+        return "/Admin/adminListaUserave.html";
 
     }
 

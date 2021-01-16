@@ -23,7 +23,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button">|||</a>
             </li>
-            <h2 class="m-0">REZERVIMEVET</h2>
+            <h2 class="m-0">DHOMAT</h2>
         </ul>
 
 
@@ -55,7 +55,7 @@
                     <img src="/images/admin.png" alt="User Image">
                 </div>
                 <div class="info">
-<!--                    Get the user who is loged in. -->
+                    <!--                    Get the user who is loged in. -->
                     <a href="#" class="d-block">Arber Berisha</a>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link active">
+                                <a th:href="@{/lista_rezervimeve}"  class="nav-link">
                                     <p>ListaRezervimeve</p>
                                 </a>
                             </li>
@@ -94,7 +94,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a th:href="@{/shtodhomeForm}"  class="nav-link">
+                                <a th:href="@{/shtodhomeForm}"  class="nav-link active">
                                     <p>ShtoDhome</p>
                                 </a>
                             </li>
@@ -132,50 +132,45 @@
         <!-- Content Header (Page header) -->
         <div class="content-header text-center" style="margin-left: auto; margin-right: auto;">
             <div class="container-fluid" style="margin-left: auto; margin-right: auto;">
-                    <div class="col">
-                        <h2 class="m-0">Lista Rezervimeve</h2>
+                <div class="col">
+                    <h2 class="m-0">Shto Dhome</h2>
 
-                        <div class="m-3" style="margin-left: auto; margin-right: auto;">
-                            <form th:action="@{/lista_rezervimeve}">
-                                Kerko Rezervimin:
-                                <input type="text" name="fjalKyqe" th:value="${fjalKyqe}" required/>
-                                &nbsp;
-                                <input type="submit" value="search"/>
-                                &nbsp;
-                                <input type="button" value="clear" onclick="clearFilter()"/>
-                            </form>
+                    <form th:action="@{/shtohetDhoma}" th:object="${dhoma}"
+                          method="post" style="max-width: 600px; margin: 0 auto;">
+                        <div class="m-3">
+                            <div class="form-group row">
+                                <label class="col-form-label col-4">Cmimi:</label>
+                                <div class="col-8">
+                                    <input type="text"  class="form-control" th:field="*{cmimi}" required/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-4">Emri i Dhomes:</label>
+                                <div class="col-8">
+                                    <input name="arber" type="text"  class="form-control" th:field="*{emertimi}" required/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-4">Kati:</label>
+                                <div class="col-8">
+                                    <input type="text"  class="form-control" th:field="*{kati}" required/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-4">Numri i shtreterve:</label>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" th:field="*{nrShtreterve}" required/>
+                                </div>
+                            </div>
+
+                            <div>
+                                <button type="submit" class="btn btn-primary" >Shto</button>
+                                <button type="button" class="btn btn-primary" onclick="window.history.back();">Anullo</button>
+                            </div>
+
                         </div>
-
-
-                        <div style="margin-left: auto; margin-right: auto;">
-                            <table class="table table-striped table-bordered" >
-                                <thead class="thead-dark">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>ngaData</th>
-                                    <th>DeriMeDaten</th>
-                                    <th>Dhoma</th>
-                                    <th>Kati</th>
-                                    <th>Emri</th>
-                                    <th>Mbiemri</th>
-                                    <th>Email</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="rezervimi: ${listaRezervimeve}">
-                                    <td th:text="${rezervimi.id}">ID</td>
-                                    <td th:text="${rezervimi.ngaData}">ngaData</td>
-                                    <td th:text="${rezervimi.deriMeDaten}">DeriMeDaten</td>
-                                    <td th:text="${rezervimi.dhomaID.getEmertimi()}">Dhoma</td>
-                                    <td th:text="${rezervimi.dhomaID.getKati()}">Kati</td>
-                                    <td th:text="${rezervimi.userID.getFirstName()}">Emri</td>
-                                    <td th:text="${rezervimi.userID.getLastName()}">Mbiemri</td>
-                                    <td th:text="${rezervimi.userID.getEmail()}">Email</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div><!-- /.col -->
+                    </form>
+                </div><!-- /.col -->
 
             </div><!-- /.container-fluid -->
         </div>
@@ -218,7 +213,7 @@
 
 <script type="text/javascript">
     function clearFilter(){
-        window.location = "/lista_rezervimeve";
+        window.location = "/lista_dhomave";
     }
 </script>
 
