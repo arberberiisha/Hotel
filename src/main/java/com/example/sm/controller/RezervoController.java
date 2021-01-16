@@ -48,7 +48,7 @@ public class RezervoController {
         model.addAttribute("listaRezervimeve", listaRezervimeve);
         model.addAttribute("fjalKyqe",fjalKyqe);
 
-        return "/Admin/listaR.html";
+        return "/Admin/admin.html";
 
     }
 

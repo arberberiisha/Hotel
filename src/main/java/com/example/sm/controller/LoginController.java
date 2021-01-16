@@ -23,22 +23,14 @@ public class LoginController {
         String roli = myUserDetails.getUserRole();
 
         if(roli.equals("ADMIN")){
-            return "/Admin/indexAdmin.html";
+            return "redirect:/lista_rezervimeve";
         }else {
             return "/Client/indexClient.html";
         }
     }
 
 
-        @RequestMapping( "/logout")
-        public String logout(HttpServletRequest request) {
-            SecurityContextHolder.clearContext();
-            HttpSession session = request.getSession(false);
-            if (session != null) {
-                session.invalidate();
-            }
-            return "redirect:/";
-        }
+
 
 
 
