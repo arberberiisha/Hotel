@@ -22,11 +22,11 @@ public class UserController {
 //    private RezervimiRepository rRepo;
 
 
-    @RequestMapping("")
-    public String viewHomePage(){
-
+    @RequestMapping("/")
+    public String viewHomePage(Model model){
+        model.addAttribute("user",new user());
         //e perfunduar
-        return "indexUser";
+        return "singup_form";
     }
 
     @RequestMapping("/register")
@@ -44,7 +44,7 @@ public class UserController {
         user.setPassword(encodedPassword);
         uRepo.save(user);
 
-        return "register_succes.html";
+        return "singup_form";
 
     }
 

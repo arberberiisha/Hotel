@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>HotelA</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="jquery.datetimepicker.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/scrolling-nav.css}" rel="stylesheet">
+    <link th:href="@{/css/contact.css}" rel="stylesheet">
+
+
+</head>
+
+<body id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+
+        <a href="#page-top"><img src="images/blueicone.png" class="icone"></a>
+
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">HotelA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#dhomatELira">Dhomat</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">KONTAKT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<section class="section-padding" style="padding-top: 40px" id="dhomatELira">
+    <h2 style="padding-top: 100px;" class="sub-title text-center test">REZERVONI!</h2>
+    <div style="padding-top: 30px;" class="card-deck">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4" th:each="dhoma: ${teLira}">
+                    <div class="card my-3">
+                        <!-- set a width on the image otherwise it will expand to full width       -->
+                        <img class="card-img-top" src="images/room1.jpeg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title"></h4>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <p style="font-weight: bold; float: right;">Emri Dhomes: </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="card-text" th:text="${dhoma.emertimi}"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <p style="font-weight: bold; float: right;">Kati: </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="card-text" th:text="${dhoma.kati}"></p>
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <p style="font-weight: bold; float: right;">Numri Shtreterve: </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="card-text" th:text="${dhoma.nrShtreterve}"></p>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <p style="font-weight: bold; float: right;">Cmimi: </p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="card-text" th:text="${dhoma.cmimi}"></p>
+                                        </div>
+                                            <p>$</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <form method="post" th:action="@{/procesi_rezervimit}">
+                                            <input type="hidden" name="ngaData" th:value="${param.nga}"/>
+                                            <input type="hidden" name="deriMeDaten" th:value="${param.deri}"/>
+                                            <input type="hidden" name="dhomaID" th:value="${dhoma.id}"/>
+                                            <button type="submit" class="btn btn-primary">Rezervo</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center">
+                    <div class="form-group">
+                        <a th:href="@{/rezervon}">
+                            <button type="submit" class="btn btn-danger">ANULO</button>
+                        </a>
+                    </div>
+                </div>
+</section>
+
+
+<!-- kontaktimi-->
+<section class="mainnn text-white" id="contact">
+    <div>
+        <h2 style="padding-top: 50px;" class="sub-title text-center test">KONTAKTONI</h2>
+        <div>
+            <form action="https://formspree.io/aberisha85@hotmail.com" method="POST">
+                <div class="row" style="  width: 100%;float:left;padding-top: 20px; padding-left: 5%;">
+                    <div class="colll">
+                        <label for="fname">Emri</label>
+                        <input type="text" id="fname" name="Emri" placeholder="Emri juaj ...">
+                    </div>
+                    <div class="colll">
+                        <label for="lname">Mbiemri</label>
+                        <input type="text" id="lname" name="Mbiemri" placeholder="Mbiemri juaj ...">
+                    </div>
+                    <div class="colll">
+                        <label for="shteti">Shteti</label>
+                        <select id="shteti" name="shteti">
+                            <option value="kosova">Kosova</option>
+                            <option value="shqiperia">Shqiperia</option>
+                            <option value="tjeter">Tjeter</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="padding-top: 20px;  padding-left: 5%">
+                    <label for="komenti">Komenti</label>
+                    <textarea id="komenti" name="komenti" placeholder="Shkruani komentin tuaj..."
+                              style="height:200px; width: 90%;"></textarea>
+                    <div class="text-center" style="padding-top: 20px; padding-bottom: 20px;">
+                        <input style="width:20%" type="submit" value="Dergo">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Arber Berisha</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+<!-- Plugin JavaScript -->
+<script th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+<!-- Custom JavaScript for this theme -->
+<script th:src="@{js/scrolling-nav.js}"></script>
+<script>
+    var modal = document.getElementById('id01');
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+
+</html>

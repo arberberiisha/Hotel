@@ -7,6 +7,16 @@ import javax.persistence.*;
 @Table(name ="users")
 public class user {
 
+    public user(){}
+
+    public user(String email, String password, String firstName, String lastName, String roli) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.roli = roli;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

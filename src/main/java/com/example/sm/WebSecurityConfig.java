@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
@@ -66,13 +67,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin( )
-                    .loginPage("/login")
-                    .failureHandler(authFailureHandler)
-                    .defaultSuccessUrl("/login  ")
-                    .permitAll()
-                     .and()
-                .logout(logout->logout.deleteCookies("coocies")
-                );
+                .loginPage("/login")
+                .failureHandler(authFailureHandler)
+                .defaultSuccessUrl("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/")
+                .deleteCookies("JSESSIONID")
+                .permitAll();
     }
 
 

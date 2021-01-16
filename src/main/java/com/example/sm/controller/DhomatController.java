@@ -99,7 +99,7 @@ public class DhomatController {
                 LocalDate.parse(nga, dtf),
                 LocalDate.parse(deri, dtf));
 
-        ModelAndView mav = new ModelAndView("Client/listaDomaveTeLira.html");
+        ModelAndView mav = new ModelAndView("Client/indexDhomatELira.html");
         mav.addObject("teLira", teLira);
         return mav;
     }
