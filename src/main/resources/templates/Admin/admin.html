@@ -12,9 +12,15 @@
     <!-- Theme style -->
     <link rel="stylesheet" th:href="@{/css/adminlte.min.css}">
 
+<!--    test-->
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
 </head>
 <body class="hold-transition sidebar-mini">
+
 <div class="wrapper">
+
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -32,7 +38,7 @@
         <ul class="navbar-nav ml-auto">
             <form class="col-sm-6 form-group" th:action="@{/logout}">
                 <a href="/logout" id="logout_" title="Log out">
-                    <button class="btn btn-danger" type="submit">Logout</button>
+                    <button style="width: auto;" class="btn btn-danger" type="submit">Logout</button>
                 </a>
             </form>
         </ul>
@@ -69,6 +75,7 @@
                          with font-awesome or any other icon font library -->
                     <li class="nav-item menu-open">
                         <a href="#" class="nav-link active">
+                            <img style="width: 27px;" src="/images/booking.png" alt="User Image">
                             <p>
                                 REZERVIMET
                             </p>
@@ -82,7 +89,8 @@
                         </ul>
                     </li>
                     <li class="nav-item menu-open">
-                        <a  class="nav-link active">
+                        <a href="#" class="nav-link active">
+                            <img style="width: 27px;"  src="/images/room.png" alt="User Image">
                             <p >
                                 DHOMAT
                             </p>
@@ -102,6 +110,7 @@
                     </li>
                     <li class="nav-item menu-open">
                         <a href="#" class="nav-link active">
+                            <img style="width: 27px;" src="/images/group.png" alt="User Image">
                             <p>
                                 USERS
                             </p>
@@ -134,6 +143,9 @@
             <div class="container-fluid" style="margin-left: auto; margin-right: auto;">
                     <div class="col">
                         <h2 class="m-0">Lista Rezervimeve</h2>
+<!--                        <a class="flex-sm-fill text-sm-center nav-link" onclick="document.getElementById('id01').style.display='block'" href="#">LogIn</a>-->
+
+
 
                         <div class="m-3" style="margin-left: auto; margin-right: auto;">
                             <form th:action="@{/lista_rezervimeve}">
@@ -221,8 +233,17 @@
 <script type="text/javascript">
     function clearFilter(){
         window.location = "/lista_rezervimeve";
+    };
+
+    var modal = document.getElementById('id01');
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
 </script>
+
 
 
 </body>

@@ -54,7 +54,7 @@ public class DhomatController {
         model.addAttribute("dhoma", dhoma);
         model.addAttribute("error", "Dhoma me kete emer egziston!!!");
 
-        return "/Admin/shto_dhoma.html";
+        return "/Admin/adminShtoDhome.html";
 
     }
 
@@ -70,7 +70,7 @@ public class DhomatController {
 
     @RequestMapping("/edit/{id}")
     public ModelAndView ndryshoDhomen(@PathVariable(name = "id") Long id) {
-        ModelAndView mav = new ModelAndView("/Admin/edit_dhoma.html");
+        ModelAndView mav = new ModelAndView("/Admin/adminDhomaEdit.html");
         dhoma dhoma = service.get(id);
         mav.addObject("dhoma", dhoma);
 

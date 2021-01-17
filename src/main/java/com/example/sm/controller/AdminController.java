@@ -74,7 +74,7 @@ public class AdminController {
 
     @RequestMapping("/editUser/{id}")
     public ModelAndView ndryshimiUserit(@PathVariable(name = "id") Long id) {
-        ModelAndView mav = new ModelAndView("/Admin/edit_user.html");
+        ModelAndView mav = new ModelAndView("/Admin/adminUserEdit.html");
         user user = service.get(id);
         mav.addObject("user", user);
 

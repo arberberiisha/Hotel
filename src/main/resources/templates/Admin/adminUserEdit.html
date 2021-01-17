@@ -23,7 +23,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button">|||</a>
             </li>
-            <h2 class="m-0">DHOMAT</h2>
+            <h2 class="m-0">USERS</h2>
         </ul>
 
 
@@ -77,14 +77,13 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a th:href="@{/lista_rezervimeve}"  class="nav-link">
-
                                     <p>ListaRezervimeve</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active"><img style="width: 27px;" src="/images/room.png" alt="User Image">
+                        <a  href="#" class="nav-link active"><img style="width: 27px;" src="/images/room.png" alt="User Image">
                             <p >
                                 DHOMAT
                             </p>
@@ -96,7 +95,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a th:href="@{/shtodhomeForm}"  class="nav-link active">
+                                <a th:href="@{/shtodhomeForm}"  class="nav-link ">
                                     <p>ShtoDhome</p>
                                 </a>
                             </li>
@@ -110,7 +109,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a th:href="@{/lista_clienteve}" class="nav-link">
+                                <a th:href="@{/lista_clienteve}" class="nav-link active">
                                     <p>ListaUserave</p>
                                 </a>
                             </li>
@@ -134,45 +133,54 @@
         <!-- Content Header (Page header) -->
         <div class="content-header text-center" style="margin-left: auto; margin-right: auto;">
             <div class="container-fluid" style="margin-left: auto; margin-right: auto;">
-                <div class="col">
-                    <h2 class="m-0">Shto Dhome</h2>
 
-                    <form th:action="@{/shtohetDhoma}" th:object="${dhoma}"
-                          method="post" style="max-width: 600px; margin: 0 auto;">
-                        <div class="m-3">
-                            <div class="form-group row">
-                                <label class="col-form-label col-4">Cmimi:</label>
-                                <div class="col-8">
-                                    <input type="text"  class="form-control" th:field="*{cmimi}" required/>
-                                </div>
+                <form action="#" th:action="@{/updateUser}" th:object="${user}"
+                      method="post" style="max-width: 600px; margin: 0 auto;">
+                    <div class="m-3">
+                        <div class="form-group row">
+                            <label class="col-form-label col-4">ID:</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{id}" required/>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-form-label col-4">Emri i Dhomes:</label>
-                                <div class="col-8">
-                                    <input name="arber" type="text"  class="form-control" th:field="*{emertimi}" required/>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-form-label col-4">Kati:</label>
-                                <div class="col-8">
-                                    <input type="text"  class="form-control" th:field="*{kati}" required/>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-form-label col-4">Numri i shtreterve:</label>
-                                <div class="col-8">
-                                    <input type="text" class="form-control" th:field="*{nrShtreterve}" required/>
-                                </div>
-                            </div>
-
-                            <div>
-                                <button type="submit" class="btn btn-primary" >Shto</button>
-                                <button type="button" class="btn btn-primary" onclick="window.history.back();">Anullo</button>
-                            </div>
-
                         </div>
-                    </form>
-                </div><!-- /.col -->
+                        <div class="form-group row">
+                            <label class="col-form-label col-4">Emri:</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{firstName}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-4">Mbiemri:</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{lastName}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-4">Email:</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{email}" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-4">Pasword:</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{password}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-4">Roli:</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{roli}" required/>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary" >Ndrysho</button>
+                            <button type="button" class="btn btn-primary" onclick="window.history.back();">Anullo</button>
+                        </div>
+
+                    </div>
+                </form>
 
             </div><!-- /.container-fluid -->
         </div>
@@ -217,7 +225,7 @@
 
 <script type="text/javascript">
     function clearFilter(){
-        window.location = "/lista_dhomave";
+        window.location = "/lista_clienteve";
     }
 </script>
 
