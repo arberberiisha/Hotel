@@ -120,37 +120,45 @@
 
 
 <!-- kontaktimi-->
-<section class="mainnn text-white" id="contact">
-    <div>
-        <h2 style="padding-top: 50px;" class="sub-title text-center test">KONTAKTONI</h2>
-        <div>
+<section id="contact">
+
+    <div class="section-content">
+        <h1 class="section-header">Kontakto</h1>
+    </div>
+    <div class="contact-section">
+
+        <div class="container">
             <form action="https://formspree.io/aberisha85@hotmail.com" method="POST">
-                <div class="row" style="  width: 100%;float:left;padding-top: 20px; padding-left: 5%;">
-                    <div class="colll">
-                        <label for="fname">Emri</label>
-                        <input type="text" id="fname" name="Emri" placeholder="Emri juaj ...">
+
+                <div style="float: left; width: 50%; padding: 10px;" class=" col-sm-6 form-line">
+                    <div class="form-group">
+                        <label for="Emri-Mbiemri">Emri Mbiemri</label>
+                        <input type="text" class="form-control" id="Emri-Mbiemri" placeholder=" Enter Name">
                     </div>
-                    <div class="colll">
-                        <label for="lname">Mbiemri</label>
-                        <input type="text" id="lname" name="Mbiemri" placeholder="Mbiemri juaj ...">
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="email" class="form-control" id="Email" placeholder=" Enter Email">
                     </div>
-                    <div class="colll">
-                        <label for="shteti">Shteti</label>
-                        <select id="shteti" name="shteti">
-                            <option value="kosova">Kosova</option>
-                            <option value="shqiperia">Shqiperia</option>
-                            <option value="tjeter">Tjeter</option>
-                        </select>
+                    <div class="form-group">
+                        <label for="telephone">Numri Telefonit</label>
+                        <input type="tel" class="form-control" id="telephone"
+                               placeholder=" Enter 10-digit mobile no.">
                     </div>
                 </div>
-                <div style="padding-top: 20px;  padding-left: 5%">
-                    <label for="komenti">Komenti</label>
-                    <textarea id="komenti" name="komenti" placeholder="Shkruani komentin tuaj..."
-                              style="height:200px; width: 90%;"></textarea>
-                    <div class="text-center" style="padding-top: 20px; padding-bottom: 20px;">
-                        <input style="width:20%" type="submit" value="Dergo">
+                <div style="float:right;" class="col-sm-6">
+                    <div class="form-group">
+                        <label for="description">Mesazhi</label>
+                        <textarea class="form-control" id="description" placeholder="Enter Your Message"></textarea>
                     </div>
+                    <div>
+
+                        <button type="button" class="btn btn-outline-success submit"><i class="fa fa-paper-plane"
+                                                                                        aria-hidden="true"></i> Dergo
+                        </button>
+                    </div>
+
                 </div>
+
             </form>
         </div>
     </div>
@@ -159,6 +167,11 @@
 
 <!-- Footer -->
 <footer class="py-5 bg-dark">
+    <div class="float-right d-none d-sm-inline">
+        <a style="width: 24px; padding-left: 10px; " href="https://www.facebook.com/berisha24"> <img  src="/images/facebook.png"></a>
+        <a style="width: 24px; padding-left: 10px; " href="https://github.com/arberberiisha"> <img  src="/images/github.png"></a>
+        <a style="width: 24px; padding-left: 10px; padding-right: 40px;" href="https://www.instagram.com/arber_beriisha/"> <img  src="/images/instagram.png"></a>
+    </div>
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Arber Berisha</p>
     </div>

@@ -166,9 +166,9 @@
                                 <td th:text="${user.lastName}">User LastName</td>
                                 <td th:text="${user.roli}">User Role</td>
                                 <td>
-                                    <a th:href="@{'/editUser/' + ${user.id}}">Edit</a>
+                                    <a th:href="@{'/editUser/' + ${user.id}}"><img  src="/images/edit.png"></a>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a th:href="@{'/deleteUser/' + ${user.id}}">Delete</a>
+                                    <a th:href="@{'/deleteUser/' + ${user.id}}"><img style="width: 26px"  src="/images/delete.png"></a>
                                 </td>
                             </tr>
                             </tbody>
@@ -199,10 +199,12 @@
     <footer class="main-footer">
         <!-- To the right -->
         <div class="float-right d-none d-sm-inline">
-            Anything you want
+            <a style="width: 24px; padding-left: 10px;" href="https://www.facebook.com/berisha24"> <img  src="/images/facebook.png"></a>
+            <a style="width: 24px; padding-left: 10px;" href="https://github.com/arberberiisha"> <img  src="/images/github.png"></a>
+            <a style="width: 24px; padding-left: 10px;" href="https://www.instagram.com/arber_beriisha/"> <img  src="/images/instagram.png"></a>
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2020-2021 <a href="https://www.facebook.com/berisha24">Arber Berisha</a>.</strong> All rights reserved.
     </footer>
 </div>
 <!-- ./wrapper -->
@@ -218,7 +220,7 @@
 
 <script type="text/javascript">
     function clearFilter(){
-        window.location = "/lista_dhomave";
+        window.location = "/lista_clienteve";
     }
 </script>
 
