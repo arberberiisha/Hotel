@@ -1,0 +1,7 @@
+coment01 = mapari qitu pe delkaron formen me qito inputa, nga edhe to. name duhet mu pershtat
+                        se qysh e ki ne controller p.sh nga edhe deri duhet mu kon te njejta
+                        nese e ndryshon name sbon mo
+                        tash kur e zgjedh ni dat ky e qon ni get request me qito si query parametra.
+
+
+

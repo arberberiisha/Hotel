@@ -32,16 +32,7 @@ public class DhomatController {
     }
 
 
-    @GetMapping("/lista_dhomave")
-    public  String  viewDhomaList(Model model,@Param("fjalKyqe") String fjalKyqe){
 
-        List<dhoma> dhomaList = service.listAll(fjalKyqe);
-        model.addAttribute("dhomaList", dhomaList);
-        model.addAttribute("fjalKyqe",fjalKyqe);
-
-            return "/Admin/adminListaDhomave.html";
-
-    }
 
     //    @PostMapping("/shtohetDhoma")
     @RequestMapping(value = "/shtohetDhoma", method = RequestMethod.POST)
@@ -55,6 +46,17 @@ public class DhomatController {
         model.addAttribute("error", "Dhoma me kete emer egziston!!!");
 
         return "/Admin/adminShtoDhome.html";
+
+    }
+
+    @GetMapping("/lista_dhomave")
+    public  String  viewDhomaList(Model model,@Param("fjalKyqe") String fjalKyqe){
+
+        List<dhoma> dhomaList = service.listAll(fjalKyqe);
+        model.addAttribute("dhomaList", dhomaList);
+        model.addAttribute("fjalKyqe",fjalKyqe);
+
+        return "/Admin/adminListaDhomave.html";
 
     }
 
